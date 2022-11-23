@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { random_name } from './utils/random_name';
 
 function App() {
   const [generatedName, setGeneratedName] = useState("");
 
-  const generateName = () => {
-    setGeneratedName("Test Name");
+  const generateName = async () => {
+    const name = await random_name(3, 12);
+    setGeneratedName(name);
+    console.log({name})
   }
 
   return (
